@@ -12,6 +12,13 @@ Esse script tem fins totalmente educacionais em nivel basico de seguranca da inf
 
 O mesmo tambem se encontra em desenvolvimento, podemos chamar isso de um alpha.
 
+TODO:
+Adicionar son as escolhas;
+Alterar cor do texto;
+Remover textos anteriores ao selecionar uma opcao;
+Criptografar senhas;
+Melhorar sistema de escolhas;
+
 Libs usadas:
 
 urllib
