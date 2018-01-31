@@ -241,7 +241,7 @@ def icbmlaunchmenu():
                      print("Rede de acionamento offline")
                      icbmlaunchmenu();
               else:
-                     print("Error select a missile to launch")
+                     print("Erro selecione um missil para lancar")
                      icbmlaunchmenu();
 
 
@@ -300,7 +300,7 @@ def menu():
                      time.sleep(5)
                      icmblaunchauth();
               else:
-                     print("Error type help for help")
+                     print("Erro digite help para ajuda")
 
 senha = str(input("\n\nSenha de controle Global: "))
 if senha == "ADX102FDCAK201":
