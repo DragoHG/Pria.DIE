@@ -79,53 +79,55 @@ def alvo(missil):
               location = geolocator.geocode(local)
               print("ENDERECO: " + location.address + "\n")
               print("CORDENADAS: " + str(location.latitude), str(location.longitude))
-              decisao = input("O alvo esta correto? Y|N")
+              decisao = input("O alvo esta correto? Y|N: ")
               if decisao == "Y":
-                     aviso1 = """"
+                     aviso1 = """"\n
                      ______      __                   _____ 
                      |  _  \    / _|                 |____ |
                      | | | |___| |_ ___ ___  _ __        / /
                      | | | / _ \  _/ __/ _ \| '_ \       \ \ 
                      | |/ /  __/ || (_| (_) | | | |  .___/ /
-                     |___/ \___|_| \___\___/|_| |_|  \____/ 
+                     |___/ \___|_| \___\___/|_| |_|  \____/ \n
                      """
                      print(aviso1)
                      time.sleep(2)
                      print ("Preparando lancamento! \n"
                             "ICBM: " + missil + "\n"
-                            "Alvo: "+ location.latitude, location.longitude)
+                            "Alvo: "+ str(location.latitude), str(location.longitude))
+                     print("Lancamento iminente")
                      for remaining in range(20, 0, -1):
-                            print("Lancamento iminente")
                             time.sleep(2)
                             sys.stdout.write("\r")
                             sys.stdout.write("{:2d} Segundos para o lancamento".format(remaining))
                             sys.stdout.flush()
                             time.sleep(1)
-                            aviso2 = """
-                                   ______      __                   _____ 
-                                   |  _  \    / _|                 / __  \ 
-                                   | | | |___| |_ ___ ___  _ __    `' / /'
-                                   | | | / _ \  _/ __/ _ \| '_ \     / /  
-                                   | |/ /  __/ || (_| (_) | | | |  ./ /___
-                                   |___/ \___|_| \___\___/|_| |_|  \_____/
-                                """
-                            sys.stdout.write(aviso2)
+                     aviso2 = """\n
+                            ______      __                   _____ 
+                            |  _  \    / _|                 / __  \ 
+                            | | | |___| |_ ___ ___  _ __    `' / /'
+                            | | | / _ \  _/ __/ _ \| '_ \     / /  
+                            | |/ /  __/ || (_| (_) | | | |  ./ /___
+                            |___/ \___|_| \___\___/|_| |_|  \_____/
+                            \n
+                         """
+                     sys.stdout.write(aviso2)
 
+                     print("ICBM Lancado")
                      for remaining in range(15, 0, -1):
-                            print("ICBM Lancado")
                             sys.stdout.write("\r")
                             sys.stdout.write("{:2d} Segundos ate o alvo".format(remaining))
                             sys.stdout.flush()
                             time.sleep(1)
-                            aviso3 = """
-                                   ______      __                   __  
-                                   |  _  \    / _|                 /  | 
-                                   | | | |___| |_ ___ ___  _ __    `| | 
-                                   | | | / _ \  _/ __/ _ \| '_ \    | | 
-                                   | |/ /  __/ || (_| (_) | | | |  _| |_
-                                   |___/ \___|_| \___\___/|_| |_|  \___/
-                             """
-                            sys.stdout.write(aviso3)
+                     aviso3 = """\n
+                            ______      __                   __  
+                            |  _  \    / _|                 /  | 
+                            | | | |___| |_ ___ ___  _ __    `| | 
+                            | | | / _ \  _/ __/ _ \| '_ \    | | 
+                            | |/ /  __/ || (_| (_) | | | |  _| |_
+                            |___/ \___|_| \___\___/|_| |_|  \___/
+                            \n
+                      """
+                     sys.stdout.write(aviso3)
                      print("ICBM Efetivo no alvo:" + location.address)
                      time.sleep(10)
                      gg = """"
@@ -141,10 +143,10 @@ def alvo(missil):
                      sys.exit(0)
 
               elif decisao == "N":
-                     alvo();
+                     alvo(missil);
               else:
                      print("Opcao invalida")
-                     alvo();
+                     alvo(missil);
 
 
 def icbmlaunch():
