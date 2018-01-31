@@ -53,14 +53,14 @@ print("Usuario: " + getpass.getuser())
 
 
 def lacamento(missil):
+       print("Preparando lancamento: " + missil)
        for remaining in range(10, 0, -1):
-              print("Preparando lancamento: " + missil)
               time.sleep(2)
               sys.stdout.write("\r")
               sys.stdout.write("{:2d} Segundos para patente nuclear" .format(remaining))
               sys.stdout.flush()
               time.sleep(1)
-       sys.stdout.write("\rComplete!\n")
+       sys.stdout.write("\rCompleto!\n")
        aviso = """"
        ______      __                     ___ 
        |  _  \    / _|                   /   |
@@ -78,7 +78,7 @@ def alvo(missil):
               geolocator = Nominatim()
               location = geolocator.geocode(local)
               print("ENDERECO: " + location.address + "\n")
-              print(("CORDENADAS: " + location.latitude, location.longitude))
+              print("CORDENADAS: " + str(location.latitude), str(location.longitude))
               decisao = input("O alvo esta correto? Y|N")
               if decisao == "Y":
                      aviso1 = """"
