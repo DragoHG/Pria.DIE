@@ -1,7 +1,19 @@
+""""
+Autor: Fabio Monreal
+Python -V: 3.6.4
+E-mail: fabio.monreal@outlook.com
+
+Esse script tem seu intuito de teste ou diversao, o mesmo deve ser compilado em EXE e usando eng reversa deve-se
+quebrar as senhas em formato de string para realizar o lancamento nuclear de misseis russos :D
+
+#KGB n me prende pfv :(
+"""
+
 import socket
 import os, platform
 import getpass
 import time
+import sys
 from geopy.geocoders import Nominatim
 
 st1 = """"
@@ -41,7 +53,99 @@ print("Usuario: " + getpass.getuser())
 
 
 def lacamento(missil):
-       print(missil)
+       for remaining in range(10, 0, -1):
+              print("Preparando lancamento: " + missil)
+              time.sleep(2)
+              sys.stdout.write("\r")
+              sys.stdout.write("{:2d} Segundos para patente nuclear" .format(remaining))
+              sys.stdout.flush()
+              time.sleep(1)
+       sys.stdout.write("\rComplete!\n")
+       aviso = """"
+       ______      __                     ___ 
+       |  _  \    / _|                   /   |
+       | | | |___| |_ ___ ___  _ __     / /| |
+       | | | / _ \  _/ __/ _ \| '_ \   / /_| |
+       | |/ /  __/ || (_| (_) | | | |  \___  |
+       |___/ \___|_| \___\___/|_| |_|      |_/
+       """
+       print(aviso)
+       alvo(missil);
+
+def alvo(missil):
+       while True:
+              local = input("Endereco do alvo: ")
+              geolocator = Nominatim()
+              location = geolocator.geocode(local)
+              print("ENDERECO: " + location.address + "\n")
+              print(("CORDENADAS: " + location.latitude, location.longitude))
+              decisao = input("O alvo esta correto? Y|N")
+              if decisao == "Y":
+                     aviso1 = """"
+                     ______      __                   _____ 
+                     |  _  \    / _|                 |____ |
+                     | | | |___| |_ ___ ___  _ __        / /
+                     | | | / _ \  _/ __/ _ \| '_ \       \ \ 
+                     | |/ /  __/ || (_| (_) | | | |  .___/ /
+                     |___/ \___|_| \___\___/|_| |_|  \____/ 
+                     """
+                     print(aviso1)
+                     time.sleep(2)
+                     print ("Preparando lancamento! \n"
+                            "ICBM: " + missil + "\n"
+                            "Alvo: "+ location.latitude, location.longitude)
+                     for remaining in range(20, 0, -1):
+                            print("Lancamento iminente")
+                            time.sleep(2)
+                            sys.stdout.write("\r")
+                            sys.stdout.write("{:2d} Segundos para o lancamento".format(remaining))
+                            sys.stdout.flush()
+                            time.sleep(1)
+                            aviso2 = """
+                                   ______      __                   _____ 
+                                   |  _  \    / _|                 / __  \ 
+                                   | | | |___| |_ ___ ___  _ __    `' / /'
+                                   | | | / _ \  _/ __/ _ \| '_ \     / /  
+                                   | |/ /  __/ || (_| (_) | | | |  ./ /___
+                                   |___/ \___|_| \___\___/|_| |_|  \_____/
+                                """
+                            sys.stdout.write(aviso2)
+
+                     for remaining in range(15, 0, -1):
+                            print("ICBM Lancado")
+                            sys.stdout.write("\r")
+                            sys.stdout.write("{:2d} Segundos ate o alvo".format(remaining))
+                            sys.stdout.flush()
+                            time.sleep(1)
+                            aviso3 = """
+                                   ______      __                   __  
+                                   |  _  \    / _|                 /  | 
+                                   | | | |___| |_ ___ ___  _ __    `| | 
+                                   | | | / _ \  _/ __/ _ \| '_ \    | | 
+                                   | |/ /  __/ || (_| (_) | | | |  _| |_
+                                   |___/ \___|_| \___\___/|_| |_|  \___/
+                             """
+                            sys.stdout.write(aviso3)
+                     print("ICBM Efetivo no alvo:" + location.address)
+                     time.sleep(10)
+                     gg = """"
+                      _____ _____   ___  ___ _      _   __    ______ 
+                     |  __ \  __ \  |  \/  || |    | | / /   _|  _  \ 
+                     | |  \/ |  \/  | .  . || |    | |/ /   (_) | | |
+                     | | __| | __   | |\/| || |    |    \     | | | |
+                     | |_\ \ |_\ \  | |  | || |____| |\  \   _| |/ / 
+                      \____/\____/  \_|  |_/\_____/\_| \_/  (_)___/                                                
+                     """
+                     print(gg)
+                     time.sleep(10)
+                     sys.exit(0)
+
+              elif decisao == "N":
+                     alvo();
+              else:
+                     print("Opcao invalida")
+                     alvo();
+
 
 def icbmlaunch():
        launchwelcome = """
@@ -70,6 +174,9 @@ def icbmlaunch():
        (13) RSM-56 Bulava MIRV-equipped/SS-NX-30 - Offline
        """
        print(types)
+       icbmlaunchmenu();
+
+def icbmlaunchmenu():
        while True:
               raw_input = input("ICBM Launch>")
               if raw_input == '1':
@@ -78,72 +185,64 @@ def icbmlaunch():
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '2':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
+                     missil = "R-36M2 Voevoda / SS-18 Satan"
+                     print("Codigo de lacamento: Voevoda")
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '3':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
+                     missil = "UR-100N 15A30 / SS-19 Stiletto"
+                     print("Codigo de lacamento: Stiletto")
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '4':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
-                     time.sleep(2)
-                     lacamento(missil);
+                     missil = "RT-2PM Topol / 15Zh58 / SS-25 Sickle"
+                     print("Rede de acionamento offline")
+                     icbmlaunchmenu();
               elif raw_input == '5':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
-                     time.sleep(2)
-                     lacamento(missil);
+                     missil = "RT-2PM2 Topol-M / SS-27 / RS12M1 / RS12M2"
+                     print("Rede de acionamento offline")
+                     icbmlaunchmenu();
               elif raw_input == '6':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
+                     missil = "RS-24 Yars: MIRV-equipped"
+                     print("Codigo de lacamento: Yars")
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '7':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
+                     missil = "R-29R SS-N-18 Stingray"
+                     print("Codigo de lacamento: StingrayR")
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '8':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
+                     missil = "R-29RK SS-N-18 Stingray Mod 2"
+                     print("Codigo de lacamento: StingrayRK")
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '9':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
+                     missil = "R-29RL MIRV-equipped/SS-N-18 Stingray Mod 3"
+                     print("Codigo de lacamento: StingrayRL")
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '10':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
-                     time.sleep(2)
-                     lacamento(missil);
+                     missil = "R-29RM MIRV-equipped/SS-N-23 Skiff"
+                     print("Rede de acionamento offline")
+                     icbmlaunchmenu();
               elif raw_input == '11':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
+                     missil = "R-29RMU Sineva MIRV-equipped/SS-N-23 Sineva mode 2"
+                     print("Codigo de lacamento: Sineva")
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '12':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
+                     missil = "R-29RMU2 MIRV-equipped/SS-N-23 Liner"
+                     print("Codigo de lacamento: Liner")
                      time.sleep(2)
                      lacamento(missil);
               elif raw_input == '13':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
-                     time.sleep(2)
-                     lacamento(missil);
-              elif raw_input == '14':
-                     missil = "RS-28 Sarmat / SS-X-30 Satan 2"
-                     print("Codigo de lacamento: Sarmat")
-                     time.sleep(2)
-                     lacamento(missil);
+                     missil = "RSM-56 Bulava MIRV-equipped/SS-NX-30"
+                     print("Rede de acionamento offline")
+                     icbmlaunchmenu();
               else:
                      print("Error select a missile to launch")
+                     icbmlaunchmenu();
 
 
 def icmblaunchauth():
