@@ -10,6 +10,8 @@ quebrar as senhas em formato de string para realizar o lancamento nuclear de mis
 
 Esse script tem fins totalmente educacionais em nivel basico de seguranca da informacao. OpenSource para edicao dando os devidos creditos.
 
+O mesmo tambem se encontra em desenvolvimento, podemos chamar isso de um alpha.
+
 Libs usadas:
 
 urllib
